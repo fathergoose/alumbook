@@ -10,7 +10,7 @@ FactoryGirl.define do
     current_employer {Faker::Name.name}
     graduation_date {Faker::Date.between(600.days.ago, Date.today)}
     cohort_id 1
-    user_type 1
+    
  
  #   first_name "MyString"
  #   last_name "MyString"

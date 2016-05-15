@@ -25,17 +25,39 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include("can't be blank")
     end
 
-    it "is invalid without graduation_date" do
+    it "is invalid without graduation_date if user is graduate" do
       user = FactoryGirl.build(:user, graduation_date: nil)
       user.valid?
       expect(user.errors[:graduation_date]).to include("can't be blank")
     end
 
-    it "is invalid without :cohort_id if user is graduate" do
-      user = FactoryGirl.build(:user, graduation_date: nil)
-      user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
+    it "is valid without graduation_date if user is admin" do
+      user = FactoryGirl.build(:user, graduation_date: nil, admin: true)
+      expect(user).to be_valid
     end
+
+    it "is invalid without :cohort_id if user is graduate" do
+      user = FactoryGirl.build(:user, cohort_id: nil)
+      user.valid?
+      expect(user.errors[:cohort_id]).to include("can't be blank")
+    end
+
+    it "is valid without :cohort_id if user is admin" do
+      user = FactoryGirl.build(:user, cohort_id: nil, admin: true)
+      expect(user).to be_valid
+    end
+
+    it "invalidates non-email addresses with regex" do
+      user = FactoryGirl.build(:user, email: "not_a_real_address.com")
+      user.valid?
+      expect(user.errors[:email]).to include("is invalid")
+    end
+
+    it "validates email address with regex" do
+      user = FactoryGirl.build(:user, email: "looks.real@address.com")
+      expect(user).to be_valid
+    end
+
 
   end
 end
