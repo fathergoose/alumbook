@@ -1,4 +1,5 @@
 class CohortsController < ApplicationController
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
   def index
     @cohorts = Cohort.all
@@ -7,7 +8,6 @@ class CohortsController < ApplicationController
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
-    @cohort = Cohort.find(params[:id])
   end
 
   # GET /cohorts/new
@@ -17,7 +17,7 @@ class CohortsController < ApplicationController
 
   # GET /cohorts/1/edit
   def edit
-    @cohort = Cohort.find(params[:id]) 
+
   end
 
   # POST /cohorts
@@ -27,7 +27,7 @@ class CohortsController < ApplicationController
 
     respond_to do |format|
       if @cohort.save
-        Rails.logger.info @cohort.errors.full_messages
+        # Rails.logger.info @cohort.errors.full_messages
         format.html { redirect_to @cohort, notice: 'cohort was successfully created.' }
         format.json { render :show, status: :created, location: @cohort }
       else
@@ -64,7 +64,7 @@ class CohortsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cohort
-      @cohort = cohort.find(params[:id])
+      @cohort = Cohort.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
