@@ -9,5 +9,10 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
-  
+
+  def friendly_grad_date
+    if graduation_date != nil
+      graduation_date.strftime("%b %d, %Y")
+    end
+  end
 end
