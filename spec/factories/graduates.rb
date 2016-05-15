@@ -6,6 +6,6 @@ FactoryGirl.define do
     phone {Faker::PhoneNumber.cell_phone}
     current_title {Faker::Name.title}
     current_employer {Faker::Name.name}
-    graduation_date {Faker::Date.between(2.days.ago, Date.today)}
+    graduation_date {Faker::Date.between(600.days.ago, Date.today)}
   end
 end

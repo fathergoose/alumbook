@@ -5,5 +5,8 @@ RSpec.describe Graduate, type: :model do
     it "has a valid factory" do
       expect(FactoryGirl.build(:graduate)).to be_valid
     end
+
+    
+
   end
 end
