@@ -24,11 +24,18 @@ RSpec.describe GraduatesController, type: :controller do
   # Graduate. As you add validations to Graduate, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { first_name: "jay",
+      last_name: "wengrow",
+      email: "jwengrow@acltc.com",
+      phone: "772-234-2424",
+      current_title: "acltc ceo",
+      current_employer: "acltc",
+      graduation_date: Time.now
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+   {email: "skfln"}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +110,21 @@ RSpec.describe GraduatesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { first_name: "jay jay",
+          last_name: "wengrow",
+          email: "jwengrow@acltc.com",
+          phone: "777-234-2424",
+          current_title: "acltc ceo",
+          current_employer: "acltc",
+          graduation_date: Time.now
+        }
       }
 
       it "updates the requested graduate" do
         graduate = Graduate.create! valid_attributes
         put :update, {:id => graduate.to_param, :graduate => new_attributes}, valid_session
         graduate.reload
-        skip("Add assertions for updated state")
+        expect(graduate.first_name).to eq("jay jay")
       end
 
       it "assigns the requested graduate as @graduate" do
