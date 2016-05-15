@@ -58,6 +58,13 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
+    it "has a #full_name method that returns capitalized full name" do
+      user = FactoryGirl.build(:user)
+      full_name = user.first_name.capitalize + ' ' + user.last_name.capitalize
+      expect(full_name).to eq(user.full_name)
+    end
+      
+
 
   end
 end
