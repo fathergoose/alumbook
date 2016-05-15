@@ -2,13 +2,23 @@
 
 FactoryGirl.define do
   factory :user do
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
-    current_title "MyString"
-    current_employer "MyString"
-    graduation_date "2016-05-15"
+    first_name {Faker::Name.first_name}
+    last_name {Faker::Name.last_name}
+    email {Faker::Internet.email}
+    phone {Faker::PhoneNumber.cell_phone}
+    current_title {Faker::Name.title}
+    current_employer {Faker::Name.name}
+    graduation_date {Faker::Date.between(600.days.ago, Date.today)}
     cohort_id 1
-    user_type 1
+    
+ 
+ #   first_name "MyString"
+ #   last_name "MyString"
+ #   email "MyString"
+ #   current_title "MyString"
+ #   current_employer "MyString"
+ #   graduation_date "2016-05-15"
+ #   cohort_id 1
+ #   user_type 1
   end
 end
