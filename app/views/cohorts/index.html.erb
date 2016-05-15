@@ -16,10 +16,10 @@
   <tbody>
     <% @cohorts.each do |cohort| %>
       <tr>
-        <td><%= cohort.name %></td>
-        <td><%= cohort.campus %></td>
+        <td><%= cohort.name.titleize %></td>
+        <td><%= cohort.campus.titleize %></td>
         <td><%= cohort.cohort_date %></td>
-        <td><%= cohort.instructor %></td>
+        <td><%= cohort.instructor.titleize %></td>
         <td><%= link_to 'Show', cohort %></td>
         <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
         <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>

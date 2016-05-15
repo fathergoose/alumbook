@@ -2,7 +2,7 @@
 
 <p>
   <strong>First name:</strong>
-  <%= @user.first_name %>
+  <%= @user.first_name.titleize %>
 </p>
 
 <p>
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Current title:</strong>
-  <%= @user.current_title %>
+  <%= @user.current_title.titleize %>
 </p>
 
 <p>
   <strong>Current employer:</strong>
-  <%= @user.current_employer %>
+  <%= @user.current_employer.titleize %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <strong>Cohort:</strong>
-  <%= @user.cohort.name %>
+  <%= @user.cohort.name.titleize %>
 </p>
 
 <p>

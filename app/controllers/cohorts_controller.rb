@@ -8,6 +8,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
+    @users = User.where(cohort_id: @cohort.id)
   end
 
   # GET /cohorts/new
@@ -17,7 +18,6 @@ class CohortsController < ApplicationController
 
   # GET /cohorts/1/edit
   def edit
-
   end
 
   # POST /cohorts
