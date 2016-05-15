@@ -5,14 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Email</th>
-      <th>Current title</th>
-      <th>Current employer</th>
-      <th>Graduation date</th>
+      <th>Current Title</th>
+      <th>Current Employer</th>
+      <th>Graduation Date</th>
       <th>Cohort</th>
-      <th>User type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +19,13 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+        <td><%= user.first_name.titleize %></td>
+        <td><%= user.last_name.titleize %></td>
         <td><%= user.email %></td>
-        <td><%= user.current_title %></td>
-        <td><%= user.current_employer %></td>
-        <td><%= user.graduation_date %></td>
-        <td><%= user.cohort_id %></td>
-        <td><%= user.user_type %></td>
+        <td><%= user.current_title.titleize %></td>
+        <td><%= user.current_employer.titleize %></td>
+        <td><%= user.friendly_grad_date %></td>
+        <td><%= link_to user.cohort.name.titleize, cohort_path(user.cohort) %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
