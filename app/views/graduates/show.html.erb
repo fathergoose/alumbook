@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @graduate.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @graduate.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @graduate.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @graduate.phone %>
+</p>
+
+<p>
+  <strong>Current title:</strong>
+  <%= @graduate.current_title %>
+</p>
+
+<p>
+  <strong>Current employer:</strong>
+  <%= @graduate.current_employer %>
+</p>
+
+<p>
+  <strong>Graduation date:</strong>
+  <%= @graduate.graduation_date %>
+</p>
+
+<%= link_to 'Edit', edit_graduate_path(@graduate) %> |
+<%= link_to 'Back', graduates_path %>
