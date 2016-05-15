@@ -13,5 +13,29 @@ RSpec.describe User, type: :model do
       expect(user.errors[:first_name]).to include("can't be blank")
     end
 
+    it "is invalid without last_name" do
+      user = FactoryGirl.build(:user, last_name: nil)
+      user.valid?
+      expect(user.errors[:last_name]).to include("can't be blank")
+    end
+      
+    it "is invalid without email" do
+      user = FactoryGirl.build(:user, email: nil)
+      user.valid?
+      expect(user.errors[:email]).to include("can't be blank")
+    end
+
+    it "is invalid without graduation_date" do
+      user = FactoryGirl.build(:user, graduation_date: nil)
+      user.valid?
+      expect(user.errors[:graduation_date]).to include("can't be blank")
+    end
+
+    it "is invalid without :cohort_id if user is graduate" do
+      user = FactoryGirl.build(:user, graduation_date: nil)
+      user.valid?
+      expect(user.errors[:email]).to include("can't be blank")
+    end
+
   end
 end
