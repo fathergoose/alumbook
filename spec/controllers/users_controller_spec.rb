@@ -106,7 +106,8 @@ RSpec.describe UsersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:user)
+        #skip("Add a hash of attributes valid for your model")
       }
 
       it "updates the requested user" do
