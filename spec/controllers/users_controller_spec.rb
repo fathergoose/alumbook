@@ -24,11 +24,14 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:user)
+    #skip("Add a hash of attributes valid for your model")
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    FactoryGirl.attributes_for(:invalid_user)
+    # not the way apparently { some_invented_attribute: 'taco pizza beef' }
+    #skip("Add a hash of attributes invalid for your model")
   }
 
   # This should return the minimal set of values that should be in the session
