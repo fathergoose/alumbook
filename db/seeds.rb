@@ -13,13 +13,29 @@ cohort = Cohort.new(name: 'the_el_ninos',
 p cohort
 cohort.save
 
-user = User.new(first_name: 'al',
-                last_name: 'ilseman',
-                phone: '555-555-5555',
-                email: 'al@ilseman.com',
-                password: 'password',
-                cohort_id: 1)
-user.save
+users = [
+  {first_name: 'peter',
+  last_name: 'jang',
+  phone: '555-555-5555',
+  email: 'peter@acltc.com',
+  password: 'password',
+  admin: true},
+
+  {first_name: 'al',
+  last_name: 'ilseman',
+  phone: '555-555-0000',
+  email: 'al@ilseman.com',
+  password: 'password',
+  admin: false,
+  cohort_id: 1,
+  graduation_date: Time.now}]
+
+# Feel free to add yourselves as users
+
+users.each do |u|
+  new_user = User.new u
+  new_user.save
+end
 
 
 
