@@ -1,37 +1,41 @@
 <h1>Listing Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Current Title</th>
-      <th>Current Employer</th>
-      <th>Graduation Date</th>
-      <th>Cohort</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div ng-app="app">
+  <div ng-controller="usersCtrl">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Current Title</th>
+          <th>Current Employer</th>
+          <th>Graduation Date</th>
+          <th>Cohort</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name.titleize %></td>
-        <td><%= user.last_name.titleize %></td>
-        <td><%= user.email %></td>
-        <td><%= user.current_title.titleize %></td>
-        <td><%= user.current_employer.titleize %></td>
-        <td><%= user.friendly_grad_date %></td>
-        <td><%= link_to user.cohort.name.titleize, cohort_path(user.cohort) %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.first_name.titleize %></td>
+            <td><%= user.last_name.titleize %></td>
+            <td><%= user.email %></td>
+            <td><%= user.current_title.titleize %></td>
+            <td><%= user.current_employer.titleize %></td>
+            <td><%= user.friendly_grad_date %></td>
+            <td><%= link_to user.cohort.name.titleize, cohort_path(user.cohort) %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New User', new_user_path %>
+    <%= link_to 'New User', new_user_path %>
+  </div>
+</div>
