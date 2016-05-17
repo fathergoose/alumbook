@@ -22,10 +22,10 @@
             <td><%= user.first_name.titleize %></td>
             <td><%= user.last_name.titleize %></td>
             <td><%= user.email %></td>
-            <td><%= user.current_title.titleize %></td>
-            <td><%= user.current_employer.titleize %></td>
-            <td><%= user.friendly_grad_date %></td>
-            <td><%= link_to user.cohort.name.titleize, cohort_path(user.cohort) %></td>
+            <td><%= user.current_title.titleize if user.current_title %></td>
+            <td><%= user.current_employer.titleize if user.current_employer %></td>
+            <td><%= user.friendly_grad_date if user.graduation_date %></td>
+            <td><%= link_to user.cohort.name.titleize, cohort_path(user.cohort) if user.cohort_id %></td>
             <td><%= link_to 'Show', user %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
             <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
