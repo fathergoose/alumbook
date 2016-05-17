@@ -10,6 +10,11 @@
       });
     };
 
+    $scope.sort = function(keyname){
+      $scope.sortKey = keyname;   
+      $scope.reverse = !$scope.reverse;
+    }
+
     window.scope = $scope;
   }]);
 
