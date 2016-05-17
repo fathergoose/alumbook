@@ -6,7 +6,6 @@
     $scope.setupUsersIndex = function(){
       $http.get('/api/v1/users.json').then(function(response){
         $scope.users = response.data;
-        $scope.message = "hi;"
       });
     };
 
@@ -14,6 +13,15 @@
       $scope.sortKey = keyname;   
       $scope.reverse = !$scope.reverse;
     }
+
+    $scope.setupUserShow = function(userId){
+      $http.get('/api/v1/users/' + userId + '.json').then(function(response){
+        $scope.user = response.data;
+        $scope.userId = userId;
+      });
+    };
+
+
 
     window.scope = $scope;
   }]);
