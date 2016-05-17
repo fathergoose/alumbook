@@ -6,6 +6,7 @@
     $scope.setupUsersIndex = function(){
       $http.get('/api/v1/users.json').then(function(response){
         $scope.users = response.data;
+        $scope.message = "hi;"
       });
     };
 
