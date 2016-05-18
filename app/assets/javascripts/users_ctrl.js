@@ -9,6 +9,20 @@
       });
     };
 
+    $scope.sort = function(keyname){
+      $scope.sortKey = keyname;   
+      $scope.reverse = !$scope.reverse;
+    }
+
+    $scope.setupUserShow = function(userId){
+      $http.get('/api/v1/users/' + userId + '.json').then(function(response){
+        $scope.user = response.data;
+        $scope.userId = userId;
+      });
+    };
+
+
+
     window.scope = $scope;
   }]);
 
