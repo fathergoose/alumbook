@@ -1,42 +1,35 @@
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name.titleize %>
-</p>
+<div ng-app="app">
+  <div ng-controller="usersCtrl" ng-init="setupUserShow(<%= @user.id %>)">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+    <h3><strong>{{ user.full_name }}</strong></h3>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      {{ user.email }}
+    </p>
 
-<p>
-  <strong>Current title:</strong>
-  <%= @user.current_title.titleize %>
-</p>
+    <p>
+      <strong>Current title:</strong>
+      {{ user.current_title }}
+    </p>
 
-<p>
-  <strong>Current employer:</strong>
-  <%= @user.current_employer.titleize %>
-</p>
+    <p>
+      <strong>Current employer:</strong>
+      {{ user.current_employer }}
+    </p>
 
-<p>
-  <strong>Graduation date:</strong>
-  <%= @user.friendly_grad_date %>
-</p>
+    <p>
+      <strong>Cohort:</strong>
+      {{ user.cohort.name }}
+    </p>
 
-<p>
-  <strong>Cohort:</strong>
-  <%= @user.cohort.name.titleize %>
-</p>
+    <p>
+      <strong>Graduation date:</strong>
+      {{ user.friendly_grad_date }}
+    </p>
 
-<p>
-  <strong>User type:</strong>
-  <%= @user.user_type %>
-</p>
+    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-default" %>
+    <%= link_to 'Back', users_path, class: "btn btn-default" %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  </div>
+</div>
