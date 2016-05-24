@@ -22,4 +22,12 @@ FactoryGirl.define do
  #   cohort_id 1
  #   user_type 1
   end
+
+  factory :admin, parent: :user do |admin_fact|
+    admin_fact.admin true
+  end
+
+  factory :invalid_user, parent: :user do |invld_fact|
+    invld_fact.email nil
+  end
 end
