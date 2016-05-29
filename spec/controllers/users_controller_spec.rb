@@ -41,14 +41,11 @@ RSpec.describe UsersController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    # it "assigns all users as @users" do
-    #   user = User.create! valid_attributes
-    #   get :index, {}, valid_session
-    #   expect(assigns(:users)).to eq([user])
-    # end
-    # FIXME: two users are seen only one is expected \
-    # that second user is the admin
-    # TODO: check appropriate authentication before each method
+    it "assigns all users as @users" do
+      user = User.create! valid_attributes
+      get :index, {}, valid_session
+      expect(assigns(:users)).to include(user)
+    end
   end
 
   describe "GET #show" do
