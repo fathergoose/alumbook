@@ -60,10 +60,6 @@ RSpec.describe UsersController, type: :controller do
 
     describe "GET #new" do
 
-      # it "has an admin user" do 
-      #   expect(subject.current_user.admin).to eql(true)
-      # end
-
       it "assigns a new user as @user" do
         get :new, {}, valid_session
         expect(assigns(:user)).to be_a_new(User)
@@ -71,10 +67,29 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "GET #edit" do
-      it "assigns the requested user as @user" do
-        user = User.create! valid_attributes
-        get :edit, {:id => user.to_param}, valid_session
-        expect(assigns(:user)).to eq(user)
+      context "without being an admin" do
+        it "allows the current user to edit thier profiles" do
+          user = subject.current_user
+          puts user.first_name
+          get :edit, {id: user.to_param}, valid_session
+          expect(assigns(:user)).to eq(user)
+        end
+
+        it "only assigns @user if the requested user is the current user" do
+          user = User.create! valid_attributes
+          get :edit, {id: user.to_param}, valid_session
+          expect(assigns(:user)).not_to eq(user)
+        end
+
+      end
+
+      context "if current user is an admin" do
+        login_admin
+        it "assigns the requested user as @user" do
+          user = User.create! valid_attributes
+          get :edit, {:id => user.to_param}, valid_session
+          expect(assigns(:user)).to eq(user)
+        end
       end
     end
 
