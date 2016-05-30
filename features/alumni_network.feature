@@ -11,4 +11,4 @@ Feature: A social network for ACLTC alumni and staff
   Scenario: A alumnus visits the website without being logged in
     Given I am not logged in
     When I visit the homepage
-    Then I am redirected to "sign_in"
+    Then I am redirected to sign_in
