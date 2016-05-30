@@ -5,13 +5,12 @@ FactoryGirl.define do
     first_name {Faker::Name.first_name}
     last_name {Faker::Name.last_name}
     email {Faker::Internet.email}
-    phone {Faker::PhoneNumber.cell_phone}
+    phone '773-555-5555'
     current_title {Faker::Name.title}
     current_employer {Faker::Name.name}
     graduation_date {Faker::Date.between(600.days.ago, Date.today)}
     cohort_id 1
     password 'password'
-    
  
  #   first_name "MyString"
  #   last_name "MyString"

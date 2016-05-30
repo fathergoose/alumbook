@@ -5,7 +5,22 @@ class Api::V1::UsersController < ApplicationController
     @users = User.all
   end
 
+  def create
+    @user = User.new
+    
+    if @user.save
+      render :show
+    else
+      render json: { errors: @user.errors.full_messages }, status: 422
+    end
+  end
+
   def show
+  end
+
+  def update
+    @user.update(user_params)
+    render :show
   end
 
   private
